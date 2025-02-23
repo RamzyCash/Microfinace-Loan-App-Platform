@@ -7,65 +7,143 @@
     <title>Sign up</title>
 </head>
 <style>
-body{
-    background-color: burlywood;
-    }
- h1{
-    color: blueviolet;
-    text-align: center;
-    font-size: 40px;
- }
- h2{
-    text-align: left;
-    font-size: 30;
- }
- form{
-    color: black;
-    font-size: 25px;
- }
+body {
+            background-color: rgb(250, 250, 188);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            color: blueviolet;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            text-align: left;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        form {
+            color: black;
+            font-size: 16px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="int"],
+        input[type="date"],
+        input[type="password"],
+        input[type="varchar"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
 </style>
 <body>
     <a href="Landing Page.html">Back</a>
 
-    <h1>Create an account</h1>
-    <h2>Already have an account? <a href="login.html">Log in</a></h2>
-    
-    <form>
-            <label for="name">Full name:</label>
-            <input type="text" id="name" name="name"required><br><br>
-    
+    <div class="container">
+        <h1>Create an Account</h1>
+        <h2>Already have an account? <a href="login.html">Log in</a></h2>
+        <form onsubmit="return validateForm()">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email"required><br><br>
-    
-            <label for="number">Phone number:</label>
-            <select><br>
-                <option>+237</option><br>
-                <option>+234</option><br>
-                <option>+1</option><br>
-                <option>+245</option><br>
-                <option>+92</option><br>
-                <option>+235</option><br>
-                <option>+11</option><br>
-                <option>+235</option><br>
-            </select>
-            <input type="int" id="int" name="int"required><br><br>
+            <input type="email" id="email" name="email" required>
 
             <label for="date">Date of Birth:</label>
-            <input type="date" id="date" name="date"required><br><br>
+            <input type="date" id="date" name="date" required>
 
             <label for="address">Address:</label>
-            <input type="varchar" id="address" name="address"required><br><br>
+            <input type="varchar" id="address" name="address" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password"required><br><br>
+            <input type="password" id="password" name="password" required>
 
             <label for="confirmpassword">Confirm Password:</label>
-            <input type="password" id="confirmpassword" name="confirmpassword"required>
-            <label><input type="checkbox"  value="Remeber me">Remember Me</label><br>
-    
-            <input type="submit" value="Submit">
+            <input type="password" id="confirmpassword" name="confirmpassword" required>
+            <div class="checkbox-container">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember Me</label>
+            </div>
 
+            <button type="submit">Submit</button>
+            <div class="error" id="error-message"></div>
         </form>
+    </div>
     
+    <script>
+        function validateForm() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmpassword').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Passwords do not match!!';
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 </html>

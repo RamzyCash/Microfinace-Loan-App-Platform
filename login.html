@@ -7,40 +7,85 @@
     <title>Log in</title>
 </head>
 <style>
-    body{
-        background-color: azure;
-    }
-  h1{
-    text-align: center;
-    font-size: 40px;
-  }
-  h2{
-    text-align: left;
-    font-size: 20px;
-  }
+   body {
+            background-color: azure;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 20px;
+        }
 </style>
 
 <body>
-    <a href="Landing Page.html">Back</a>
-    <h1>Login</h1>
-<form>
-        <label for="name"> Full Name:</label>
-        <input type="text" id="name" name="name" required><br>
+    <div class="container">
+        <a href="Landing Page.html">Back</a>
+        <h1>Login</h1>
+        <form>
+            <label for="name">Account Name:</label>
+            <input type="text" id="name" name="name" required>
 
-        <label for="name">Email:</label>
-        <input type="email" id="email" name="email" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-        <label for="name">Pohne number:</label>
-        <input type="int" id="number" name="number" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
 
-        <label for="name">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-
-        <button type="submit">Submit</button>
-        <a href="Forgot password.html">Forgot Password?</a><br>
-
-    </form>
-
-    <h2>Don't have an account?<a href="signUp.html">signUp</a> </h2>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="footer">
+          <a href="Forgot password.html">Forgot Password?</a><br>
+          <h2>Don't have an account? <a href="signUp.html">Sign Up</a></h2>
+          <P>Or log in with google</P><img src="google.JPG" length="25px" width="15px">
+      </div>
+  </div>
 </body>
 </html>
